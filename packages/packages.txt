@@ -1,0 +1,153 @@
+Packages allow us to organize modules in the hierarchical structure.
+
+The way Python organizes packages and modules like the Operating System structures the folders and files.
+
+To create a package, we create a new folder and place the relevant modules in that folder.
+
+To instruct Python to treat a folder containing files as a package, we need to create a __init__.py file in the folder.
+
+
+For example, below is the representation of the sales package that contains three modules including order, delivery, and billing:
+
+sales
+    -->__init.py__
+    -->billing.py
+    -->delivery.py
+    -->order.py
+
+
+
+The following shows how to use functions in the order, delivery, and billing modules from the sales package:
+
+# main.py
+import sales.order
+import sales.delivery
+import sales.billing
+
+
+sales.order.create_sales_order()
+sales.delivery.create_delivery()
+sales.billing.create_billing()
+
+To make the code more concise, we can import function(s) directly from a module using below statement :-
+
+from <module> import <function>
+
+
+Example:
+
+# main.py
+from sales.order import create_sales_order as create_order
+from sales.delivery import create_delivery as start_delivery
+from sales.billing import create_billing as issue_billing
+
+
+create_order()
+start_delivery()
+issue_billing()
+
+
+Since it’s possible to rename the object when importing it, we have rename
+
+create_sales_order to create_order,
+create_delivery to start_delivery,
+and create_billing to issue_billing
+
+
+
+Initializing a package
+
+
+By convention, when we import a package, Python will execute the __init__.py in that package.
+
+Therefore, we can place the code in the __init__.py file to initialize package-level data.
+
+The following example defines a default tax rate in the __init__.py of the sales package:
+
+# __init__.py
+
+# default sales tax rate
+TAX_RATE = 0.07
+
+From the main.py file, you can access the TAX_RATE from the sales package like this:
+
+# main.py
+from sales import TAX_RATE
+
+print(TAX_RATE)
+
+In addition to initializing package-level data, the __init__.py also allows us to automatically import modules from the package.
+
+For example, in the __init__.py, if you place the following statement:
+
+# __init__.py
+
+# import the order module automatically
+from sales.order import create_sales_order
+
+# default sales tax rate
+TAX_RATE = 0.07
+
+And import the sales package from main.py file, the create_sales_order function will be automatically available as follows:
+
+# main.py
+import sales
+
+sales.order.create_sales_order()
+
+Encountering from <package> import * statement, Python will look for the __init__.py file.
+If the __init__.py file exists, it’ll load all modules specified in a special list called __all__ in the file.
+
+
+For example, we can place the order and delivery modules in the __all__ list like this:
+
+# __init__.py
+
+__all__ = [
+    'order',
+    'delivery'
+]
+
+And use the following import statement in the main.py:
+
+# main.py
+from sales import *
+
+
+order.create_sales_order()
+delivery.create_delivery()
+
+# cannot access the billing module
+
+From the main.py, we can access functions defined in the order and delivery modules.
+But we cannot see the billing module because it isn’t in the __all__ list.
+
+#######################################################################################
+
+Packages can contain subpackages. The subpackages allow you to further organize modules.
+
+The following hierarchy show the sales package that contains three subpackages: order, delivery, and billing.
+Each subpackage has the corresponding module.
+
+sales
+    -->order
+        order.py
+    -->delivery
+        delivery.py
+    -->billing
+        billing.py
+
+For example, we can place all other modules related to the order processing in the order subpackage:
+
+
+
+
+For example, to import a function from the order subpackage, we use the following import statement:
+
+# main.py
+from sales.order import create_sales_order
+
+create_sales_order()
+
+
+

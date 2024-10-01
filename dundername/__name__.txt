@@ -1,0 +1,63 @@
+__name__ variable has double underscores at both sides, it’s called dunder name.
+
+The __name__ is a special variable in Python.
+It’s special because Python assigns a different value to it depending on how its containing script executes.
+
+When we import a module, Python executes the file associated with the module.
+
+Often, we want to write a script that can be executed directly or imported as a module.
+The __name__ variable allows us to do that.
+
+When we run the script directly, Python sets the __name__ variable to '__main__'.
+
+However, if we import a file as a module, Python sets the module name to the __name__ variable.
+
+Python __name__ variable example
+
+Let's we have billing.py containing two functions -> calculate_tax() & print_billing_doc().
+In addition, it has a statement that prints out the __name__ variable to the screen:
+
+def calculate_tax(price, tax):
+    return price * tax
+
+
+def print_billing_doc():
+    tax_rate = 0.1
+    products = [{'name': 'Book',  'price': 30},
+                {'name': 'Pen', 'price': 5}]
+
+    # print billing header
+    print(f'Name\tPrice\tTax')
+
+    # print the billing item
+    for product in products:
+        tax = calculate_tax(product['price'], tax_rate)
+        print(f"{product['name']}\t{product['price']}\t{tax}")
+
+
+print(__name__)
+
+Second, we have a new file called app.py and we import the billing module like this:
+
+import billing
+
+When we execute the app.py, print(__name__) in billing.py prints the value 'billing'
+However if we execute billing.py, print(__name__) in billing.py prints the value '__main__'
+
+Therefore, the __name__ variable allows us to check when the file is executed directly or imported as a module.
+
+
+
+Let's assume that we want to execute the print_billing_doc() function when the billing.py executes directly as a script,
+To do so, we can add the following statement to the billing.py module:
+
+if __name__ == '__main__':
+    print_billing_doc()
+
+When we execute the billing.py as a script, we’ll see the following output:
+
+Name    Price   Tax
+Book    30      3.0
+Pen     5       0.5
+
+However, when we execute the app.py, we won’t see the if block executed because the __name__ variable doesn’t set to the '__main__' but 'billing'.
