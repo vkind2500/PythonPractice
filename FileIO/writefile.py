@@ -18,7 +18,7 @@ f = open(file, mode)
 | '+'   | Open a text file for updating (both reading & writing).                                       |
 ---------------------------------------------------------------------------------------------------------
 
-I hv
+
 '''
 
 
@@ -60,5 +60,36 @@ with open('FileIO/utf8.txt', 'w', encoding='utf-8') as f:
     f.write(quote)
 
 
-        
-   
+'''
+
+Note - All thses scripts creates a file in the same directory where the script file locates. 
+If we want to create a file in a specified directory e.g., docs/readme.text, 
+we need to ensure that the docs directory exists before creating the file. Otherwise, 
+
+we’ll get an exception - FileNotFoundError: [Errno 2] No such file or directory: 'docs/readme.txt'
+
+'''
+
+try:
+    with open('FileIO/Resources/utf8.txt', 'w', encoding='utf-8') as f:
+        f.write(quote)
+except FileNotFoundError:
+    print('File Not Found')
+
+
+'''
+
+X mode in file handling : In Python, the x mode in file handling is used to create a new file for writing. 
+If the file already exists, it will raise a FileExistsError. 
+This mode is useful when you want to ensure that a file is created only if it does not already exist, 
+thus preventing accidental overwriting of existing files.
+
+'''
+
+try:
+    with open('filename.txt', 'x') as file:
+        file.write('Hello, World!')
+except FileExistsError:
+    print('File Already Exist')
+
+
