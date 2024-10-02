@@ -1,3 +1,27 @@
+'''
+
+Theory : To write to a text file in Python, you follow these steps:
+
+First, open the text file for writing (or append) using the open() function.
+Second, write to the text file using the write() or writelines() method.
+Third, close the file using the close() method.
+The following shows the basic syntax of the open() function:
+
+f = open(file, mode)
+--------------------------------------------------------------------------------------------------------
+| Mode  | Description                                                                                   |
+| ------|---------------------------------------------------------------------------------------------- |
+| 'w'   | Open a text file for writing. If the file exists, the function will truncate all the contents | 
+|       | as soon as you open it. If the file doesn’t exist, the function creates a new file.           |
+| 'a'   | Open a text file for appending text. If the file exists, the function appends contents        |
+|       | at the end of the file.                                                                       |
+| '+'   | Open a text file for updating (both reading & writing).                                       |
+---------------------------------------------------------------------------------------------------------
+
+I hv
+'''
+
+
 
 'Example 1: The following example shows how to use the write() function to write a list of texts to a text file:'
 
