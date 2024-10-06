@@ -21,5 +21,3 @@ or if we want to have different field names other than the ones specified in the
 ```fieldnames = ['country_name', 'area', 'code2', 'code3']```
 
 [Dict Reader Example](../Read%20CSV%20File/dict_reader.py)
-
-   
