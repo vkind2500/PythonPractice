@@ -39,3 +39,7 @@ To write multiple rows to a CSV file at once, we use the ```writerows()``` metho
 The following example uses ```writerows()``` method to write multiple rows into the countries.csv file:
 
 [Write Multiple Rows In CSV Example](writerows.py)
+
+If each row of the CSV file is a dictionary, we can use the DictWriter class of the csv module to write the dictionary to the CSV file.
+
+[DictWriter Example](dictwriter.py)
