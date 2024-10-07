@@ -7,5 +7,4 @@ data = ['Afghanistan', 652090, 'AF', 'AFG']
 with open(file_path,'w',encoding='UTF8') as f:
     writer = csv.writer(f)
     writer.writerow(header)
-    
     writer.writerow(data)

@@ -10,13 +10,3 @@ except FileNotFoundError as e:
 except FileExistsError as e:
     print(e)    
 
-src_file = 'FileIO/Write CSV File/Resources/countries2.csv'
-dest_file = 'FileIO/Write CSV File/Resources/countries.csv'
-
-try:
-    os.rename(src_file,dest_file)
-except FileNotFoundError as e:
-    print(e)
-except FileExistsError as e:
-    print(e)    
-
