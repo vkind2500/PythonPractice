@@ -85,4 +85,8 @@ except (Exception1, Exception2):
 
 #### Example 3 : [Catch Multiple Exception](Example3.py)
 
+#### It’s a good practice to catch other general errors by placing the catch Exception block at the end of the list:
+
+
+
 
