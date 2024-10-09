@@ -284,4 +284,4 @@ An attribute of a class that can be called like a function. This is typically ac
 
     ```
 
-   ### Refer : [Example 1](Class.md)
+   ### Refer : [Example 1](Example1.py)
