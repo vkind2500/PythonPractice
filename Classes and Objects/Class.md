@@ -283,3 +283,5 @@ An attribute of a class that can be called like a function. This is typically ac
     print(callable_instance(1, 2, key='value'))  # Output: Called with arguments: (1, 2) and keyword arguments: {'key': 'value'}
 
     ```
+
+   ### Refer : [Example 1](Class.md)
