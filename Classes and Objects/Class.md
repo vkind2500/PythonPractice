@@ -270,7 +270,7 @@ An attribute of a class that can be called like a function. This is typically ac
     print(obj.static_method())       # Output: This is a static method!
     ```
 
-4. Overriding the __call__ Method
+4. Overriding the ``__call__ `` Method
 
     We can also make an instance of a class callable by implementing the ``__call__`` method in the class. This allows you to create an object that can be called like a function.
 
