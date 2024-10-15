@@ -111,6 +111,6 @@ class Request:
         print('Sent', self)
 ```        
 
-
+### Example : [Python Method](Method.md)
 
 
