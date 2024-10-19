@@ -54,3 +54,5 @@ print(person)
 ```
 Person(John,Doe,25)
 ```
+
+#### Refer : [Example 1](__str__.py)
