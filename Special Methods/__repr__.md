@@ -80,5 +80,5 @@ In other words, if we pass the returned string of the ``repr()`` method to the e
 
 #### Difference between ``__repr__`` and ``__str__``
 
-	•	``__repr__``: Focuses on providing an unambiguous, developer-facing representation.
-	•	``__str__``: Focuses on a readable, user-facing representation. If __str__ is not defined, Python falls back to __repr__.
+1. ``__repr__``: Focuses on providing an unambiguous, developer-facing representation.
+2. ``__str__``: Focuses on a readable, user-facing representation. If __str__ is not defined, Python falls back to __repr__.
