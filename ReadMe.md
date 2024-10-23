@@ -12,3 +12,10 @@
 - #### [Encapsulation & Private Attributes](<Classes and Objects/Encapsulation.md>)
 - #### [Static Method](<Classes and Objects/StaticMethod.md>)
 
+### Special Methods
+-   #### [``__str__`` method](<Special Methods/__str__.md>)
+-   #### [``__repr__`` method](<Special Methods/__repr__.md>)
+-   #### [``__eq__`` method](<Special Methods/__eq__.md>)
+-   #### [``__hash__`` method](<Special Methods/__hash__.md>)
+-   #### [``__bool__`` method](<Special Methods/__bool__.md>)
+-   #### [``__del__`` method](<Special Methods/__del__.md>)
