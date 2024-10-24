@@ -37,3 +37,5 @@ try:
 except ValueError:
     # Print a message indicating that -1 is not a valid age
     print('John age cannot be -1')
+    
+print(dir(__builtins__))
