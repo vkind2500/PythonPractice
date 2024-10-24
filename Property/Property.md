@@ -123,22 +123,26 @@ Similarly, when we read from the ``age`` property object, Python will execute th
 
 By using the ``property()`` class, we can add a property to a class while maintaining backward compatibility. 
 
->Note that the ``age`` is a class attribute, not an instance attribute.
->
->The ``Person.__dict__`` stores the class attributes of the Person class. 
->
->The following shows the contents of the ``Person.__dict__``:
->
->```python
->mappingproxy({'__dict__': <attribute '__dict__' of 'Person' >objects>,
->              '__doc__': None,
->              '__init__': <function Person.__init__ at >0x000002242F5B2670>,
->              '__module__': '__main__',
->              '__weakref__': <attribute '__weakref__' of 'Person' >objects>,
->              'age': <property object at 0x000002242EE39180>,
->              'get_age': <function Person.get_age at >0x000002242F5B2790>,
->              'set_age': <function Person.set_age at >0x000002242F5B2700>})
->
->
->When we assign value to ``age`` using statement  ``john.age = >19``,Python looks up the ``age`` attribute in the ``john.>__dict__`` first. Because Python doesn’t find the ``age`` attribute in the ``john.__dict__``, it’ll then find the age attribute in the ``Person.__dict__``.
+#### [Example Code ](Example1.py)
+
+
+### ``age`` is Class Attribute
+---
+
+The ``Person.__dict__`` stores the class attributes of the Person class. 
+
+The following shows the contents of the ``Person.__dict__``:
+
+```python
+mappingproxy({'__dict__': <attribute '__dict__' of 'Person' objects>,
+              '__doc__': None,
+              '__init__': <function Person.__init__ at >0x000002242F5B2670>,
+              '__module__': '__main__',
+              '__weakref__': <attribute '__weakref__' of 'Person' objects>,
+             'age': <property object at 0x000002242EE39180>,
+              'get_age': <function Person.get_age at 0x000002242F5B2790>,
+             'set_age': <function Person.set_age at 0x000002242F5B2700>})
+```
+
+When we assign value to ``age`` using statement  ``john.age = 19``,Python looks up the ``age`` attribute in the ``john.>__dict__`` first. Because Python doesn’t find the ``age`` attribute in the ``john.__dict__``, it’ll then find the age attribute in the ``Person.__dict__``.
 
