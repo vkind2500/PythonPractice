@@ -439,9 +439,10 @@ The ``@Star(5)`` returns an instance of the ``Star`` class. That instance is a c
 
 Put it all together:
 
+```python
 from functools import wraps
 
-```python
+
 class Star:
     def __init__(self, n):
         self.n = n
