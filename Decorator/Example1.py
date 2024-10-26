@@ -20,4 +20,4 @@ def net_price(price, tax):
 
 
 net_price = currency(net_price)
-net_price(100,0.5)
+net_price(100,0.5) # $150.0

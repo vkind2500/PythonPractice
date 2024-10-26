@@ -13,7 +13,7 @@ def repeat(times):
         return wrapper
     return decorate        
 
-# @repeat(10)
+@repeat(10)
 def say(message):
     ''' print the message 
     Arguments

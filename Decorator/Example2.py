@@ -20,4 +20,4 @@ print(greet("Alice"))
 # Checking the name and docstring of the decorated function
 print(greet.__name__)  # Outputs: greet
 print(greet.__doc__)   # Outputs: Return a greeting message.
-help(greet)
+help(greet) # Return a greeting message.

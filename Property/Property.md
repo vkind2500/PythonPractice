@@ -72,23 +72,45 @@ Imageine we are using ``Person`` class for a while and other developers have bee
 
 To define a ``getter`` and ``setter`` method while achieving backward compatibility, we can use the ``property()`` class.
 
-### The Python property class
+## Getting Started With Python’s property()
 
-The property class returns a ``property`` object. 
+Here’s the full signature of ``property()``:
 
-The ``property()`` class has the following syntax:
+```
+property([fget=None, fset=None, fdel=None, doc=None])
+```
 
-``property(fget=None, fset=None, fdel=None, doc=None)``
+The first two arguments take function objects that will play the role of getter (fget) and setter (fset) methods. Python automatically calls these function objects when you access or mutate the attribute at hand.
 
 The ``property()`` has the following parameters:
 
 -   fget is a function to get the value of the attribute, or the getter method.
 -   fset is a function to set the value of the attribute, or the setter method.
 -   fdel is a function to delete the attribute.
--   oc is a docstring i.e., a comment.
+-   doc is a docstring i.e., a comment.
+<br>
+<br>
+<div style="background-color: #e0f7fa; color: #000; border: 1px solid #ddd; padding: 10px; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
+  <strong>Note:</strong> The return value of property() is the property object which act as managed attribute itself.
+</div>
+<br>
+<br>
+
+-   If we access the managed attribute with something like ``obj.attr``, then Python automatically calls ``fget()``. 
+-   If we assign a new value to the attribute with something like ``obj.attr = value``, then Python calls ``fset()`` using the input value as an argument. 
+-   Finally, if we run a ``del obj.attr`` statement, then Python automatically calls ``fdel()``.
+<br>
+<br>
+
+<div style="background-color: #e0f7fa; color: #000; border: 1px solid #ddd; padding: 10px; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
+  <strong>Note:</strong> It’s common to refer to property() as a built-in function. However, property is a class with a function-like name. That’s why most Python developers call it a function.
+</div>
+
+<br>
+<br>
 
 The following uses the ``property()`` function to define the ``age`` property for the ``Person`` class.
-
+<br>
 
 ```python
 
@@ -146,3 +168,281 @@ mappingproxy({'__dict__': <attribute '__dict__' of 'Person' objects>,
 
 When we assign value to ``age`` using statement  ``john.age = 19``,Python looks up the ``age`` attribute in the ``john.>__dict__`` first. Because Python doesn’t find the ``age`` attribute in the ``john.__dict__``, it’ll then find the age attribute in the ``Person.__dict__``.
 
+## Property Decorator
+
+To define a getter for the ``age`` attribute, we use the property class like this:
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age
+
+    def get_age(self):
+        return self._age
+
+    age = property(fget=get_age)
+```
+
+The ``property`` class accepts a getter and returns a ``property`` object, age.
+
+***This creates an unnecessary redundancy as we can get the ``age`` of a ``Person`` object using either the ``age`` property or the ``get_age()`` method.*** 
+
+To avoid this redundancy, we can rename the ``get_age()`` method to the ``age()`` method like this:
+
+```python
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age
+
+    def age(self):
+        return self._age
+
+    age = property(fget=age)
+```
+
+The ``property()`` accepts a callable (age) and returns a callable. Therefore, it is a decorator.
+
+> **Remember** the expression **``fn = decorate(fn)``** 
+> is equivalent to below syntax :-
+>```
+>   @decorate
+>   def fn():
+>       pass   
+>```
+
+<br><br>
+Therefore, we can use the ``@property`` decorator to decorate the ``age()`` method as follows:
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age
+
+    @property
+    def age(self):
+        return self._age
+```
+So by using the ``@property`` decorator, we can simplify the property definition for a class.
+
+### Setter decorators
+
+The following adds a ``setter`` method ``(set_age)`` to assign a value to ``_age`` attribute to the ``Person`` class:
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age
+
+    @property
+    def age(self):
+        return self._age
+
+    def set_age(self, value):
+        if value <= 0:
+            raise ValueError('The age must be positive')
+        self._age = value
+```        
+
+To assign the ``set_age`` to the ``fset`` of the age property object, we can call the ``setter()`` method of the age property object like the following:
+
+```python
+age = age.setter(set_age)
+```
+
+The ``age.setter()`` method accepts a callable and returns another callable (a property object). 
+<br><br>
+Therefore, we can use the decorator ``@age.setter`` for the ``set_age()`` method like this:
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def set_age(self, value):
+        if value <= 0:
+            raise ValueError('The age must be positive')
+        self._age = value
+```
+
+<div style="background-color: #e0f7fa; color: #000; border: 1px solid #ddd; padding: 10px; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
+  <strong>Note:</strong> When we decorate the <b>set_age</b> method with <b>@age.setter</b> we create a new property and reassign the class-level name <b>.age</b>
+  <br><br>
+  This new property contains <b>getter</b> methods of the initial property along with the addition of the new <b>setter</b> method. 
+</div>
+
+<br><br>
+
+
+Now, we can change the ``set_age()`` method to the ``age()`` method and use the ``age`` property in the ``__init__()`` method:
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        if value <= 0:
+            raise ValueError('The age must be positive')
+        self._age = value
+```
+
+<br><br>
+
+To summarize, we can use decorators to create a property using the following pattern:
+
+```python
+class MyClass:
+    def __init__(self, attr):
+        self.prop = attr
+
+    @property
+    def prop(self):
+        return self.__attr
+
+    @prop.setter
+    def prop(self, value):
+        self.__attr = value
+
+    @prop.deleter
+    def prop(self):
+        print(f'Delete attr')
+        del self.__attr    
+```
+
+### Readonly Property
+
+To define a readonly property, we need to create a property with only the getter. However, it is not truly read-only because we can always access the underlying attribute and change it.
+
+The following example defines a class called ``Circle`` that has a ``radius`` attribute and an ``area()`` property:
+
+```python
+import math
+
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
+    def area(self):
+        return math.pi * self.radius ** 2
+
+
+c = Circle(10)
+print(c.area)
+
+```
+
+### Caching properties
+
+Suppose we create a new circle object and access the area property many times. Each time, the area needs to be recalculated, which is not efficient.
+
+To make it more performant, we need to recalculate the area of the circle only when the radius changes. If the radius doesn’t change, we can reuse the previously calculated area.
+
+To do it, we can use the caching technique:
+
+-   First, calculate the area and save it in a cache.
+-   Second, if the radius changes, reset the area. Otherwise, return - the area directly from the cache without recalcuation.
+
+The following defines the new ``Circle`` class with cached ``area`` property:
+
+```python
+import math
+
+
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+        self._area = None
+
+    @property
+    def radius(self):
+        return self._radius
+
+    @radius.setter
+    def radius(self, value):
+        if value < 0:
+            raise ValueError('Radius must be positive')
+
+        if value != self._radius:
+            self._radius = value
+            self._area = None
+
+    @property
+    def area(self):
+        if self._area is None:
+            self._area = math.pi * self.radius ** 2
+
+        return self._area
+```
+
+**How it works**
+
+-   First, set the ``_area`` to ``None`` in the ``__init__`` method. The ``_area`` attribute is the cache that stores the calculated ``area``.
+
+-   Second, if the ``radius`` changes (in the setter), reset the ``_area`` to ``None``.
+
+-   Third, define the ``area`` computed property. The ``area`` property returns ``_area`` if it is not ``None``. Otherwise, calculate the ``area``, save it into the ``_area``, and return it.
+
+### Python Delete Property
+
+
+#### [Full Example Code of Circle Class](Example2.py)
+
+Underhood, the ``@property`` decorator uses the property class that has three methods: ***setter, getter, and deleter***.
+
+By using the deleter, we can delete a property from an object. 
+<br><br>
+Notice that the ``deleter()`` method deletes a property of an object, not a class.
+
+The following defines the ``Person`` class with the ``name`` property:
+
+```python
+from pprint import pprint
+
+
+class Person:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if value.strip() == '':
+            raise ValueError('name cannot be empty')
+        self._name = value
+
+    @name.deleter
+    def name(self):
+        del self._name
+```
+
+The following uses the ``del`` keyword to delete the ``name`` property:
+
+```python
+del person.name
+```
+
+Internally, Python will execute the ``deleter`` method that deletes the ``_name`` attribute from the person object. The ``person.__dict__`` will be empty.
+
+### [Full Example Code](Example3.py)
