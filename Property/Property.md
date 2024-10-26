@@ -401,10 +401,9 @@ class Circle:
 
 -   Third, define the ``area`` computed property. The ``area`` property returns ``_area`` if it is not ``None``. Otherwise, calculate the ``area``, save it into the ``_area``, and return it.
 
-### Python Delete Property
-
-
 #### [Full Example Code of Circle Class](Example2.py)
+
+### Python Delete Property
 
 Underhood, the ``@property`` decorator uses the property class that has three methods: ***setter, getter, and deleter***.
 
