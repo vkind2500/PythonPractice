@@ -19,3 +19,11 @@
 -   #### [``__hash__`` method](<Special Methods/__hash__.md>)
 -   #### [``__bool__`` method](<Special Methods/__bool__.md>)
 -   #### [``__del__`` method](<Special Methods/__del__.md>)
+
+### Namespace, Closures and Decorators
+-   #### [Namespace and Scope](Property/Namesspace.md)
+-   #### [Closures](Property/Closures.md)
+-   #### [Decorators](Decorator/Decorator.md)
+
+### Property
+-   #### [Property and @property decorator](Property/Property.md)
