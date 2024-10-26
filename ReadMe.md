@@ -27,3 +27,6 @@
 
 ### Property
 -   #### [Property and @property decorator](Property/Property.md)
+
+### Inheritance and Abstract Classes
+-   #### [Inheritance,Multiple Inheritance,Abstract Classes and Methods ](ClassesandObjects/Inheritance.md)
