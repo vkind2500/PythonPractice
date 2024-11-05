@@ -33,3 +33,6 @@
 
 ### Enumeration
 -   #### [Introduction to Enumeration](Enumeration/Introduction.ipynb)
+-   #### [Enum Alias](Enumeration/EnumAlias.ipynb)
+-   #### [Customize and Extend Enum Classes](Enumeration/CustomEnumClasses.ipynb)
+-   #### [Auto Keyword](Enumeration/auto.ipynb)
