@@ -36,3 +36,9 @@
 -   #### [Enum Alias](Enumeration/EnumAlias.ipynb)
 -   #### [Customize and Extend Enum Classes](Enumeration/CustomEnumClasses.ipynb)
 -   #### [Auto Keyword](Enumeration/auto.ipynb)
+
+### Python Descriptor
+-   #### [Python Descriptor](Descriptors/PythonDescriptors.ipynb)
+
+### Exception Handling
+-   #### [Exception Handling in Python](<Exception Handling/ExceptionHandling.ipynb>)
