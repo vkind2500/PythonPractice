@@ -21,9 +21,9 @@ class Person:
 
 person = Person('Santa Cruze')  
   
-pprint(person.__dict__)  
+pprint(person.__dict__)  # {'_name': 'Santa Cruze'}
 
 del person.name   
 
-pprint(person.__dict__)     
+pprint(person.__dict__)  #{ }   
    
