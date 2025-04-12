@@ -2,6 +2,10 @@
 
 ### Python Basic
 -   #### [``__name__``](dundername/__name__.md)
+-   #### [Introduction to Loop](loop/loop.ipynb)
+-   #### [Introduction to Function](function/function.ipynb)
+-   #### [Introduction to Lambda](function/lambda.ipynb)
+-   #### [Introduction to Partial Functions](function/partialfunctions.ipynb)
 
 ### Classes and Objects
 - #### [Introduction to Class in Python](<Classes and Objects/Class.md>)
@@ -42,5 +46,10 @@
 
 ### Exception Handling
 -   #### [Exception Handling in Python](<Exception Handling/ExceptionHandling.ipynb>)
-### Tuple and Named Tuple
--   #### [Introduction to Tuple ](tuples/Tuples.ipynb)
+### Collections
+-   #### [Introduction to List](list/list.ipynb)
+-   #### [Introduction to Iterator](iterator/iterator.ipynb)
+-   #### [Introduction to Set](set/Set.ipynb)
+-   #### [Introduction to Tuple ](Tuples.ipynb)
+-   #### [sort ans Sorted()](sort/sort.ipynb)
+-   #### [Introduction to Dictionary](dictionary/dictionary.ipynb)
