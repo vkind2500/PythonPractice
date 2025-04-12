@@ -36,7 +36,7 @@ In most Markdown renderers, this will display Python syntax with color coding.
 ### 2. **Using HTML for Custom Styling (Color, Background)**
 - If the Markdown renderer supports HTML, you can style code blocks with custom colors, backgrounds, and padding.
 
-```html
+
 <pre style="background-color: #f5f5f5; border: 1px solid #ccc; padding: 10px; border-radius: 5px; color: #333; font-family: monospace;">
 <code>
 # This is a fancy code block with custom styling
@@ -44,3 +44,38 @@ def hello_world():
     print("Hello, World!")
 </code>
 </pre>
+
+
+
+<div style="background-color: #e0f7fa; border: 1px solid #2196F3; padding: 10px; border-radius: 5px;">
+  <strong>Note:</strong> This section contains important information and a code example.
+  <pre style="background-color: #f5f5f5; color: #000 border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+  <code>
+  def hello_world():
+      print("Hello, World!")  # This function prints a greeting
+  </code>
+  </pre>
+  Make sure to call this function in your main program.
+</div>
+
+<div style="background-color: #e0f7fa; border: 1px solid #2196F3; padding: 10px; border-radius: 5px; color: #000;">
+  <strong>Note:</strong> This section contains important information and a code example.
+  <pre style="background-color: #f5f5f5; color: #000; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+  <code>
+  def hello_world():
+      print("Hello, World!")  # This function prints a greeting
+  </code>
+  </pre>
+  Make sure to call this function in your main program.
+</div>
+
+<div style="background-color: #e0f7fa; border: 1px solid #2196F3; padding: 10px; border-radius: 5px; color: #000;">
+  <strong>Note:</strong> This section contains important information and a code example.
+  <pre style="background-color: #f5f5f5; border: 1px solid #ddd; padding: 10px; border-radius: 5px; color: #000;">
+  <code style="color: #000;">
+  def hello_world():
+      print("Hello, World!")  # This function prints a greeting
+  </code>
+  </pre>
+  Make sure to call this function in your main program.
+</div>
