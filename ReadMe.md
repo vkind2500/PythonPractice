@@ -8,7 +8,7 @@
 -   #### [Introduction to Partial Functions](function/partialfunctions.ipynb)
 
 ### Classes and Objects
-- #### [Introduction to Class in Python](<Classes and Objects/Class.md>)
+- #### [Introduction to Class in Python](<Classes and Objects/Class>)
 - #### [Class Attributes](<Classes and Objects/ClassAttribute.md>)
 - #### [Instance Method](<Classes and Objects/Method.md>)
 - #### [``__init__``](<Classes and Objects/__init__.md>)
@@ -45,10 +45,10 @@
 -   #### [Python Descriptor](Descriptors/PythonDescriptors.ipynb)
 
 ### Exception Handling
--   #### [Exception Handling in Python](<Exception Handling/ExceptionHandling.ipynb>)
+-   #### [Exception Handling in Python](ExceptionHandling.ipynb)
 ### Collections
--   #### [Introduction to List](list/list.ipynb)
--   #### [Introduction to Iterator](iterator/iterator.ipynb)
+-   #### [Introduction to List](list.ipynb)
+-   #### [Introduction to Iterator](/Users/kkumar/Documents/GitHub/PythonPractice/iterator/iterator.ipynb)
 -   #### [Introduction to Set](set/Set.ipynb)
 -   #### [Introduction to Tuple ](Tuples.ipynb)
 -   #### [sort ans Sorted()](sort/sort.ipynb)
