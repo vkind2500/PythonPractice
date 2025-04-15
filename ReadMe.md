@@ -49,7 +49,7 @@
 ### Collections
 -   #### [Introduction to List](list.ipynb)
 -   #### [Introduction to Iterator](/Users/kkumar/Documents/GitHub/PythonPractice/iterator/iterator.ipynb)
--   #### [Introduction to Set](set/Set.ipynb)
+-   #### [Introduction to Set](collection/Set.ipynb)
 -   #### [Introduction to Tuple ](Tuples.ipynb)
--   #### [sort ans Sorted()](sort/sort.ipynb)
--   #### [Introduction to Dictionary](dictionary/dictionary.ipynb)
+-   #### [sort ans Sorted()](collection/sort.ipynb)
+-   #### [Introduction to Dictionary](collection/dictionary.ipynb)
